@@ -31,3 +31,4 @@ A simple, clean task management tool built with HTML, CSS, and JavaScript. This 
 1. Clone or download the repository:
    ```bash
    git clone https://github.com/your-username/task-manager-app.git
+![alt text](<Screenshot 2025-07-11 155253.png>) ![alt text](<Screenshot 2025-07-11 155338.png>) ![alt text](<Screenshot 2025-07-11 155351.png>) ![alt text](<Screenshot 2025-07-11 155401.png>) ![alt text](<Screenshot 2025-07-11 155409.png>) ![alt text](<Screenshot 2025-07-11 155425.png>)
