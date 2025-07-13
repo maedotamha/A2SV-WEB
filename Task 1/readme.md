@@ -31,13 +31,23 @@ A simple, clean task management tool built with HTML, CSS, and JavaScript. This 
    ```bash
    git clone https://github.com/your-username/task-manager-app.git
 ![alt text](<Screenshot 2025-07-11 155253.png>) 
+
 Add Task 
+
 ![alt text](<Screenshot 2025-07-11 155338.png>) 
-Toggle to show Description 
+
+\n Toggle to show Description 
+
 ![alt text](<Screenshot 2025-07-11 155351.png>)
+
 Edit task Name 
+
 ![alt text](<Screenshot 2025-07-11 155401.png>) 
+
 Edit Task Description 
+
 ![alt text](<Screenshot 2025-07-11 155409.png>)
+
 Mark as done 
+
 ![alt text](<Screenshot 2025-07-11 155425.png>)
