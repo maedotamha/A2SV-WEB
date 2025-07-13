@@ -113,7 +113,10 @@ function addTask(): void {
 
   checkIfEmpty();
 }
-
+taskForm.addEventListener("submit", (e: Event) => {
+  e.preventDefault(); 
+  addTask();
+});
 
 
 
