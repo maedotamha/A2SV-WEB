@@ -36,7 +36,7 @@ Add Task
 
 ![alt text](<Screenshot 2025-07-11 155338.png>) 
 
-\n Toggle to show Description 
+Toggle to show Description 
 
 ![alt text](<Screenshot 2025-07-11 155351.png>)
 
