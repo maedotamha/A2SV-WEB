@@ -13,7 +13,6 @@ A simple, clean task management tool built with HTML, CSS, and JavaScript. This 
 - Toggle description visibility
 - Data is saved locally using the browser’s localStorage
 - Displays a message when there are no tasks
-- Form appears only when "Add New Task" button is clicked
 
 ---
 
@@ -31,4 +30,4 @@ A simple, clean task management tool built with HTML, CSS, and JavaScript. This 
 1. Clone or download the repository:
    ```bash
    git clone https://github.com/your-username/task-manager-app.git
-![alt text](<Screenshot 2025-07-11 155253.png>) ![alt text](<Screenshot 2025-07-11 155338.png>) ![alt text](<Screenshot 2025-07-11 155351.png>) ![alt text](<Screenshot 2025-07-11 155401.png>) ![alt text](<Screenshot 2025-07-11 155409.png>) ![alt text](<Screenshot 2025-07-11 155425.png>)
+![alt text](<Screenshot 2025-07-11 155253.png>) Add Task ![alt text](<Screenshot 2025-07-11 155338.png>) Edit Task Name![alt text](<Screenshot 2025-07-11 155351.png>) Edit task Description ![alt text](<Screenshot 2025-07-11 155401.png>) ![alt text](<Screenshot 2025-07-11 155409.png>) ![alt text](<Screenshot 2025-07-11 155425.png>)
