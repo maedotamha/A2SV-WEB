@@ -1,19 +1,22 @@
+(() => {
 const taskNameInput = document.getElementById("taskName") as HTMLInputElement;
 const taskDescInput = document.getElementById("taskDesc") as HTMLInputElement;
 const taskList = document.getElementById("taskList") as HTMLUListElement;
 const taskForm = document.getElementById("taskForm") as HTMLFormElement;
 const emptyMsg = document.getElementById("emptyMsg") as HTMLParagraphElement;
 
+
 function checkIfEmpty(): void {
   const tasks = document.querySelectorAll(".task-item");
   emptyMsg.style.display = tasks.length === 0 ? "block" : "none";
 }
 
+
 function editTask(nameSpan: HTMLSpanElement, descDiv: HTMLDivElement): void {
   const newName = prompt("Edit Task Name", nameSpan.textContent || "");
   const newDesc = prompt("Edit Task Description", descDiv.textContent || "");
 
-  if (newName !== null && newName.trim() !== "") {
+  if (newName?.trim()) {
     nameSpan.textContent = newName.trim();
   }
 
@@ -21,6 +24,7 @@ function editTask(nameSpan: HTMLSpanElement, descDiv: HTMLDivElement): void {
     descDiv.textContent = newDesc.trim();
   }
 }
+
 
 function deleteTask(li: HTMLLIElement, descDiv: HTMLDivElement): void {
   const confirmDelete = confirm("Are you sure you want to delete?");
@@ -31,11 +35,13 @@ function deleteTask(li: HTMLLIElement, descDiv: HTMLDivElement): void {
   }
 }
 
+
 function toggleDescription(descDiv: HTMLDivElement, button: HTMLButtonElement): void {
   const isHidden = descDiv.style.display === "none";
   descDiv.style.display = isHidden ? "block" : "none";
   button.textContent = isHidden ? "🔼" : "🔽";
 }
+
 
 function addTask(): void {
   const name = taskNameInput.value.trim();
@@ -45,6 +51,7 @@ function addTask(): void {
     alert("Task must have a name!");
     return;
   }
+
 
   const li = document.createElement("li");
   li.className = "task-item";
@@ -78,6 +85,7 @@ function addTask(): void {
   editBtn.textContent = "Edit";
   editBtn.onclick = () => editTask(nameSpan, descDiv);
 
+
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "X";
   deleteBtn.style.backgroundColor = "#e74c3c";
@@ -99,13 +107,14 @@ function addTask(): void {
   taskList.appendChild(li);
   taskList.appendChild(descDiv);
 
+
   taskNameInput.value = "";
   taskDescInput.value = "";
 
   checkIfEmpty();
 }
 
-taskForm.addEventListener("submit", (event: Event) => {
-  event.preventDefault();
-  addTask();
-});
+
+
+
+})();

@@ -2,38 +2,40 @@ const taskNameInput = document.getElementById("taskName");
 const taskDescInput = document.getElementById("taskDesc");
 const taskList = document.getElementById("taskList");
 const taskForm = document.getElementById("taskForm");
-
 const emptyMsg = document.getElementById("emptyMsg");
-
-
 
 function checkIfEmpty() {
   const tasks = document.querySelectorAll(".task-item");
   emptyMsg.style.display = tasks.length === 0 ? "block" : "none";
 }
-function Edit(){
-    const newName = prompt("Edit Task Name", nameSpan.textContent);
-    const newDesc = prompt("Edit Task Description", descDiv.textContent);
 
-    if (newName !== null && newName.trim() !== "") {
-      nameSpan.textContent = newName.trim();
-    }
+function Edit(nameSpan, descDiv) {
+  const newName = prompt("Edit Task Name", nameSpan.textContent);
+  const newDesc = prompt("Edit Task Description", descDiv.textContent);
 
-    if (newDesc !== null) {
-      descDiv.textContent = newDesc.trim();
-    }
-};
-function Delete(){
-  alert("Are you sure you want to Delete" )
-  li.remove();
-  descDiv.remove();
-  checkIfEmpty();
-};
-function Display(){
+  if (newName !== null && newName.trim() !== "") {
+    nameSpan.textContent = newName.trim();
+  }
+
+  if (newDesc !== null) {
+    descDiv.textContent = newDesc.trim();
+  }
+}
+
+function Delete(li, descDiv) {
+  const confirmDelete = confirm("Are you sure you want to delete?");
+  if (confirmDelete) {
+    li.remove();
+    descDiv.remove();
+    checkIfEmpty();
+  }
+}
+
+function Display(descDiv, dropBtn) {
   const isHidden = descDiv.style.display === "none";
   descDiv.style.display = isHidden ? "block" : "none";
   dropBtn.textContent = isHidden ? "🔼" : "🔽";
-};
+}
 
 function addTask() {
   const name = taskNameInput.value.trim();
@@ -74,19 +76,17 @@ function addTask() {
 
   const editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
-  editBtn.onclick = Edit(); 
+  editBtn.onclick = () => Edit(nameSpan, descDiv);
 
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "X";
   deleteBtn.style.backgroundColor = "#e74c3c";
-  deleteBtn.onclick = Delete();
+  deleteBtn.onclick = () => Delete(li, descDiv);
 
   if (desc) {
     const dropBtn = document.createElement("button");
     dropBtn.textContent = "🔽";
-
-    dropBtn.onclick = Display()
-
+    dropBtn.onclick = () => Display(descDiv, dropBtn);
     rightDiv.appendChild(dropBtn);
   }
 
@@ -95,6 +95,7 @@ function addTask() {
 
   li.appendChild(leftDiv);
   li.appendChild(rightDiv);
+
   taskList.appendChild(li);
   taskList.appendChild(descDiv);
 
