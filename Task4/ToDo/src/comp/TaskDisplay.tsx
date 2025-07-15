@@ -48,14 +48,14 @@ const TaskDisplay = ({ task, onEdit, onDelete, onToggleDone }: props) => {
         >
           Edit
         </button>
-      </div>
-          <button
-            onClick={() => onDelete(task)}
-            className="text-sm text-red-500 bg-red-200 rounded-lg px-4 py-1 hover:bg-red-400 hover:text-red-700 font-semibold"
-          >
-            Delete
-          </button>
         </div>
+            <button
+                onClick={() => onDelete(task)}
+                className="text-sm text-red-500 bg-red-200 rounded-lg px-4 py-1 hover:bg-red-400 hover:text-red-700 font-semibold"
+            >
+                Delete
+            </button>
+            </div>
       </div>
 
       {/* Description */}
@@ -76,7 +76,7 @@ const TaskDisplay = ({ task, onEdit, onDelete, onToggleDone }: props) => {
       )}
 
       {/* SubTask List */}
-      {showSub && task.subTasks && (
+      {showSub && task.subTasks && task.subTasks.length > 0 && (
         <ul className="list-disc list-inside text-sm pl-4">
           {task.subTasks.map((sub, index) => (
             <li key={index} className={task.done ? "line-through" : ""}>

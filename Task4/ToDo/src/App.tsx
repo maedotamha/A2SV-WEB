@@ -4,18 +4,18 @@ import TaskDisplay from "./comp/TaskDisplay";
 import { Task } from "./types/TaskType";
 
 const App = () => {
+
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [taskToEdit, setTaskToEdit] = useState<Task | null>(null);
+  const [showAddTask , setShowAddTask] = useState(false);
 
   const handleAddTask = (task: Task) => {
-    const newTask = {
-      ...task,
-      done: false,
-    };
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, task]);
   };
 
   const handleDeleteTask = (taskToDelete: Task) => {
     setTasks(tasks.filter((t) => t !== taskToDelete));
+    if (taskToEdit === taskToDelete) setTaskToEdit(null);
   };
 
   const handleToggleDone = (taskToToggle: Task) => {
@@ -25,28 +25,38 @@ const App = () => {
     setTasks(updatedTasks);
   };
 
-  const handleEditTask = (taskToEdit: Task) => {
-    const newName = prompt("Enter new task name", taskToEdit.taskName);
-    if (!newName) return;
+  const handleEditTask = (task: Task) => {
+    setTaskToEdit(task);
+  };
 
-    const updatedTasks = tasks.map((t) =>
-      t === taskToEdit ? { ...t, taskName: newName } : t
-    );
-    setTasks(updatedTasks);
+  const handleUpdateTask = (updatedTask: Task) => {
+    setTasks(tasks.map((t) => (t === taskToEdit ? updatedTask : t)));
+    setTaskToEdit(null);
   };
 
   return (
     <div className="p-6 max-w-2xl mx-auto space-y-6">
-      <AddTask onAddTask={handleAddTask} />
+      <div >
+        <h1 className="text-2xl font-bold text-blue-800"> TO DO LIST </h1>
+        {showAddTask ?
+        <AddTask
+          onAddTask={handleAddTask}
+          onUpdateTask={handleUpdateTask}
+          taskToEdit={taskToEdit}
+          clearEditMode={() => setTaskToEdit(null)}
+        /> :
+        <button className="rounded bg-blue-200 px-3 py-1 mx-auto"> Add a task</button>
+        }
+      </div>
 
       <h2 className="text-2xl font-bold text-blue-800">Your Tasks</h2>
       <div className="space-y-4">
         {tasks.length === 0 ? (
-          <p className="text-gray-500">No tasks added yet.</p>
+          <p className="text-gray-500">No tasks yet.</p>
         ) : (
-          tasks.map((task, index) => (
+          tasks.map((task, i) => (
             <TaskDisplay
-              key={index}
+              key={i}
               task={task}
               onEdit={handleEditTask}
               onDelete={handleDeleteTask}
