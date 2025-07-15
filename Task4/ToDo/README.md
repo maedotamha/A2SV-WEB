@@ -55,6 +55,30 @@ npm install
 Run the development server:
 
 npm run dev
-home page
-<img src = "./src/assets/t home page.png">
+
+Home Page
+
+![<img src = "A2SV-WEB\Task4\ToDo\src\assets\t home Page.png" >](<src/assets/t home Page.png>)
+
+Add Task
+
+![add task](<src/assets/t add task.png>)
+
+Display Task
+
+![display](<src/assets/t display task.png>)
+
+Mark As Done 
+
+![mark](<src/assets/t mark as done.png>)
+
+Show Sub Task
+
+![mark](<src/assets/t show sub task.png>)
+
+Edit Taks
+
+![edit](<src/assets/t edit task.png>)
+
+
 Developed by Maedot Amha
