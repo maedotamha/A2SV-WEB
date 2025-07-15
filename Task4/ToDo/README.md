@@ -55,4 +55,6 @@ npm install
 Run the development server:
 
 npm run dev
+home page
+<img src = "./src/assets/t home page.png">
 Developed by Maedot Amha
