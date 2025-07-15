@@ -38,15 +38,34 @@ const App = () => {
     <div className="p-6 max-w-2xl mx-auto space-y-6">
       <div >
         <h1 className="text-2xl font-bold text-blue-800"> TO DO LIST </h1>
-        {showAddTask ?
-        <AddTask
-          onAddTask={handleAddTask}
-          onUpdateTask={handleUpdateTask}
-          taskToEdit={taskToEdit}
-          clearEditMode={() => setTaskToEdit(null)}
-        /> :
-        <button className="rounded bg-blue-200 px-3 py-1 mx-auto"> Add a task</button>
-        }
+        
+        {showAddTask ? (
+          <div>
+            <AddTask
+              onAddTask={(task) => {
+                handleAddTask(task);
+                setShowAddTask(false); 
+              }}
+              onUpdateTask={(task) => {
+                handleUpdateTask(task);
+                setShowAddTask(false); 
+              }}
+              taskToEdit={taskToEdit}
+
+              clearEditMode={() => {
+                setTaskToEdit(null);
+                setShowAddTask(false);
+              }}
+            />
+            
+          </div>
+        ) :
+        <button
+          onClick={() => setShowAddTask(true)}
+          className="rounded bg-blue-200 px-3 py-1 mx-auto block"
+          >
+          Add a task
+        </button>}
       </div>
 
       <h2 className="text-2xl font-bold text-blue-800">Your Tasks</h2>
@@ -58,7 +77,10 @@ const App = () => {
             <TaskDisplay
               key={i}
               task={task}
-              onEdit={handleEditTask}
+              onEdit={(task)=>{
+                handleEditTask(task)
+                setShowAddTask(true)
+              }}
               onDelete={handleDeleteTask}
               onToggleDone={handleToggleDone}
             />
