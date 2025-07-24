@@ -2,6 +2,7 @@ import React from 'react';
 import { job } from '../types/types';
 import Description from './description';
 import Title from './Title';
+import Tags from './tags';
 
 type JobDescriptionProps = {
   job: job;
@@ -38,7 +39,7 @@ const JobDescription = ({ job }: JobDescriptionProps) => {
         </>
       </div>
 
-      {/* Right side */}
+      
       <div className="flex-[2] flex flex-col gap-3">
         <>
           <Title label="About" />
@@ -53,10 +54,12 @@ const JobDescription = ({ job }: JobDescriptionProps) => {
         <hr className="my-4 border-t border-gray-300" />
         <>
           <Title label="Categories" />
-          <ul className="list-disc pl-5 text-sm">
+          <ul className=" text-sm ">
+            <div className='flex  gap-1'>
             {job.about.categories.map((cat, i) => (
-              <li key={i}>{cat}</li>
+              <li key={i}><Tags label = {cat} type = "1" color = {`${i +1 }`} /></li>
             ))}
+            </div>
           </ul>
         </>
         <hr className="my-4 border-t border-gray-300" />

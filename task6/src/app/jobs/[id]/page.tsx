@@ -1,15 +1,14 @@
 import jobData from '../../jobs.json'; 
 import JobDescription from '../../components/JobDescribtion';
 import { job } from '../../types/types';
+import { notFound } from "next/navigation";
 
-export default function JobDetailPage({ params }: { params: { slug: string } }) {
+export default function JobDetailPage({ params : {id} }: { params: { id: string} }) {
   const jobs: job[] = jobData.job_postings;
 
-  const selectedJob = jobs.find(
-    (j) => j.title.toLowerCase().replace(/\s+/g, '-') === params.slug
-  );
+  const selectedJob = jobs[parseInt(id)];
 
-  if (!selectedJob) return <p className="text-center mt-10">Job not found</p>;
+  if (!selectedJob) return notFound();
 
   return (
     <div className="max-w-5xl mx-auto mt-10">
