@@ -20,17 +20,17 @@ const JobDescription = ({ job }: JobDescriptionProps) => {
         <>
           <Title label="Responsibilities" />
           <ul className="list-disc pl-5 text-sm">
-            {job.responsibilities.map((r, i) => (
+            {job.responsibilities?.map?.((r, i) => (
               <li key={i}>{r}</li>
-            ))}
+            )) ?? <li>No responsibilities listed</li>}
           </ul>
         </>
         <>
           <Title label="Ideal Candidate we want" />
           <ul className="list-disc pl-5 text-sm">
-            {job.ideal_candidate.traits.map((trait, i) => (
+            {job.ideal_candidate?.traits?.map((trait, i) => (
               <li key={i}>{trait}</li>
-            ))}
+            )) ?? <li>No traits listed</li>}
           </ul>
         </>
         <>
@@ -54,22 +54,22 @@ const JobDescription = ({ job }: JobDescriptionProps) => {
         <hr className="my-4 border-t border-gray-300" />
         <>
           <Title label="Categories" />
-          <ul className=" text-sm ">
-            <div className='flex  gap-1'>
-            {job.about.categories.map((cat, i) => (
-              <li key={i}><Tags label = {cat} type = "1" color = {`${i +1 }`} /></li>
-            ))}
-            </div>
+          <ul className="flex gap-1 text-sm">
+            {job.about?.categories?.map((cat, i) => (
+              <li key={i}>
+                <Tags label={cat} type="1" color={`${i + 1}`} />
+              </li>
+            )) ?? <li>No categories</li>}
           </ul>
         </>
         <hr className="my-4 border-t border-gray-300" />
         <>
           <Title label="Required Skills" />
           <ul className="list-disc pl-5 text-sm">
-            {job.about.required_skills.map((skill, i) => (
-              <li key={i}>{skill}</li>
-            ))}
-          </ul>
+              {job.about?.required_skills?.map((skill, i) => (
+                <li key={i}>{skill}</li>
+              )) ?? <li>No skills listed</li>}
+            </ul>
         </>
       </div>
     </div>

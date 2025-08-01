@@ -1,6 +1,6 @@
 import './globals.css';
-import {store} from './Redux/store'
-import { Provider } from "react-redux"
+import ProviderWrapper from './Redux/ProviderWrapper';
+
 
 export const metadata = {
   title: 'My Job App',
@@ -11,9 +11,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <Provider store = {store}>
+        <ProviderWrapper>
           {children}
-        </Provider>
+        </ProviderWrapper>
       </body>
     </html>
   );

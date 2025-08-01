@@ -1,9 +1,19 @@
-import React from 'react'
+import Header from "./components/header";
+import JobList from "./components/jobList"; 
 
-const page = () => {
+const Opportunity = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="max-w-4xl mx-auto ">
+      
+      <div className="mx-auto pt-2 px-4">
+        <div className="flex justify-between items-center">
+          <h1 className="text-3xl font-extrabold">Opportunities</h1>
+        </div>
+      </div>
 
-export default page
+      <JobList /> 
+    </div>
+  );
+};
+
+export default Opportunity;

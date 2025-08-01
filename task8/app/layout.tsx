@@ -1,17 +1,24 @@
-import "./globals.css";
+import { AuthProvider } from './api/auth/authProvider';
+import Header from './components/header';
+import './globals.css';
+import ProviderWrapper from './Redux/ProviderWrapper';
 
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const metadata = {
+  title: 'My Job App',
+  description: 'A simple job listing platform',
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body
-        className={``}
-      >
-        <div className="m-2">{children}</div>
+      <body>
+        <ProviderWrapper>
+          <AuthProvider>
+            <Header />
+            {children}
+          </AuthProvider>
+        </ProviderWrapper>
       </body>
     </html>
   );
