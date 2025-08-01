@@ -5,7 +5,7 @@ interface prop {
 
 const Description = ({desc}:prop) => {
   return (
-    <div className='font-light'>{desc}</div>
+    <div className='font-light text-sm'>{desc}</div>
   )
 }
 
