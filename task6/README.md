@@ -33,3 +33,5 @@ The home page uses getStaticProps to load all job posts.
 Clicking a job takes the user to a detail page powered by dynamic routing (pages/jobs/[id].tsx).
 
 Components are styled using Tailwind utility classes.
+![alt text](<public/Screenshot 2025-08-01 100014.png>)
+![alt text](<public/Screenshot 2025-08-01 101635.png>)
